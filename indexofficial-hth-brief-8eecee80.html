@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>华体会 · 专题杂志</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #fbfbfa;
+            color: #1a1a1a;
+            font-family: "Noto Serif SC", "Times New Roman", "Songti SC", serif;
+            line-height: 1.7;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0 1.2rem;
+        }
+
+        .page {
+            max-width: 720px;
+            width: 100%;
+            margin: 3rem auto 4rem;
+        }
+
+        /* hero 横幅 */
+        .hero {
+            margin-bottom: 3.5rem;
+            padding-top: 1.8rem;
+            border-top: 4px solid #d9c8a2;
+        }
+
+        .hero-label {
+            font-size: 0.7rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: #9a8b7a;
+            margin-bottom: 0.6rem;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            line-height: 1.15;
+            color: #1e1e1e;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-sub {
+            font-size: 1.1rem;
+            color: #5e5548;
+            border-left: 2px solid #cbb59a;
+            padding-left: 1.2rem;
+            margin-top: 0.3rem;
+        }
+
+        /* 背景说明 - 窄且克制的引言 */
+        .backdrop {
+            margin: 2.8rem 0 3rem 0;
+            padding: 1.8rem 2rem;
+            background-color: #f4f1eb;
+            border-radius: 2px;
+            font-size: 0.95rem;
+            color: #3e3a34;
+        }
+
+        .backdrop em {
+            font-style: italic;
+            color: #735c42;
+        }
+
+        /* 三段自然介绍 */
+        .essay {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+            margin: 3rem 0 2.5rem 0;
+        }
+
+        .essay-section {
+            border-bottom: 1px solid #e6dfd4;
+            padding-bottom: 2rem;
+        }
+
+        .essay-section:last-child {
+            border-bottom: none;
+        }
+
+        .essay-section h3 {
+            font-size: 1.35rem;
+            font-weight: 400;
+            letter-spacing: 0.01em;
+            color: #2b2824;
+            margin-bottom: 0.8rem;
+        }
+
+        .essay-section p {
+            font-size: 0.98rem;
+            color: #3b3731;
+        }
+
+        .essay-section p + p {
+            margin-top: 1rem;
+        }
+
+        .essay-section .inset-link {
+            color: #735c42;
+            text-decoration: none;
+            border-bottom: 1px dotted #b7a489;
+            transition: border-color 0.15s, color 0.15s;
+        }
+
+        .essay-section .inset-link:hover {
+            border-bottom: 1px solid #735c42;
+            color: #1e1e1e;
+        }
+
+        /* 精简短问答摘要 —— 杂志 FAQ 感 */
+        .faq-note {
+            margin: 3rem 0 2.8rem 0;
+            background: #ffffff;
+            border: 1px solid #e6ddd0;
+            padding: 1.5rem 1.8rem;
+        }
+
+        .faq-note h4 {
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #9a8772;
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .faq-item {
+            display: flex;
+            gap: 0.6rem;
+            margin-bottom: 0.9rem;
+        }
+
+        .faq-q {
+            font-weight: 500;
+            color: #3b332b;
+            white-space: nowrap;
+            min-width: 4.6rem;
+            font-size: 0.9rem;
+        }
+
+        .faq-a {
+            font-size: 0.9rem;
+            color: #4f4941;
+        }
+
+        .faq-a a {
+            color: #735c42;
+            text-decoration: none;
+            border-bottom: 1px dotted #b7a489;
+        }
+
+        .faq-a a:hover {
+            border-bottom: 1px solid #735c42;
+        }
+
+        /* 页尾访问提示 */
+        .footer-note {
+            margin-top: 3.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e0d7ca;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.6rem;
+        }
+
+        .footer-note .sig {
+            font-size: 0.8rem;
+            color: #9a8d7c;
+            letter-spacing: 0.04em;
+        }
+
+        .footer-note p {
+            font-size: 0.95rem;
+            color: #3b3731;
+            max-width: 560px;
+        }
+
+        .footer-note a {
+            color: #3b332b;
+            text-decoration: none;
+            border-bottom: 1px solid #b7a489;
+            font-weight: 400;
+            transition: border-color 0.15s;
+        }
+
+        .footer-note a:hover {
+            border-bottom: 1px solid #1e1e1e;
+        }
+
+        /* 响应式 */
+        @media (max-width: 520px) {
+            body {
+                padding: 0 0.9rem;
+            }
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            .hero-sub {
+                font-size: 1rem;
+                padding-left: 0.8rem;
+            }
+            .backdrop {
+                padding: 1.2rem 1.2rem;
+                font-size: 0.9rem;
+            }
+            .essay-section h3 {
+                font-size: 1.2rem;
+            }
+            .faq-note {
+                padding: 1.2rem;
+            }
+            .faq-item {
+                flex-direction: column;
+                gap: 0.2rem;
+            }
+            .faq-q {
+                white-space: normal;
+                min-width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <!-- 首页横幅 -->
+    <header class="hero">
+        <div class="hero-label">· 专题 · 叙述</div>
+        <h1 class="hero-title">华体会</h1>
+        <div class="hero-sub">一种持续在场的感受方式</div>
+    </header>
+
+    <!-- 背景说明 -->
+    <section class="backdrop">
+        <p>“体会”在中文里本就有<em>沉浸、觉察、融入</em>的意味。而「华体会」并非某种固定概念，它更像一种持久而轻缓的语境：在信息过载的时代里，保留对细微之处的知觉，不急于表达，也不疏于在场。我们尝试用文字和设计，将这种语境还原为可阅读的秩序。</p>
+    </section>
+
+    <!-- 三段自然介绍 -->
+    <div class="essay">
+        <div class="essay-section">
+            <h3>从观看，到在场</h3>
+            <p>许多时候，我们面对屏幕只是滑动，而非阅读。真正的「体会」来自于停顿——目光在某个字句上多停留一秒，或者注意到版式里一行留白。在华体会的语境中，内容不是被快速消费的物料，而是一种邀请：邀请你回到一种缓慢的、有温度的注意力状态。这种状态无关效率，只关乎感知的密度。</p>
+            <p>正因为如此，我们尽量避免花哨的装饰和急切的引导。一篇文章、一张图像、一段空白，都应该保持其本身的呼吸节奏。你可以把这种设计语言理解为对「匆忙」的温和抵抗。</p>
+        </div>
+
+        <div class="essay-section">
+            <h3>具体而微的质感</h3>
+            <p>没有宏大的宣言，也没有夸张的承诺。华体会所关注的，往往是那些容易被忽略的侧面：一种字体在屏幕上的灰度，一段叙述里自然出现的停顿，或是页面滚动时像素边缘的过渡。这些细小的质感构成了整体的阅读体验，也让「体会」落到实处。</p>
+            <p>正因如此，我们相信内容的可信度来自于克制而非渲染。当你读到一段平实的叙述，或是一篇没有弹窗干扰的文字，那种安静本身就在传递一种态度。而<a href="https://indexofficial-hth.com.cn" class="inset-link">华体会</a>所提供的，正是这样一个少被打扰的阅读角落——它不争夺你的注意力，只等待你主动靠近。</p>
+        </div>
+
+        <div class="essay-section">
+            <h3>节奏、余白与在场</h3>
+            <p>杂志的节奏和网页的节奏并不相同。前者依赖翻页的仪式感，后者容易被无限滚动稀释。我们尝试在数字媒介中找回某种“翻页感”：段落之间留出足够的余白，标题不刻意放大，颜色不抢眼，却让视线有一个清晰的落脚点。这不是复古，而是对阅读节奏的一种重新编排。</p>
+            <p>当你浏览这个页面时，或许已经注意到字间距、行高、以及窄正文宽度带来的专注感。这些细节并非偶然。它们是「华体会」对在场状态的一种翻译——不炫耀，但确切存在。</p>
+        </div>
+    </div>
+
+    <!-- FAQ 摘要 —— 杂志风格简问答 -->
+    <div class="faq-note">
+        <h4>· 短问答 ·</h4>
+        <div class="faq-item">
+            <span class="faq-q">问：</span>
+            <span class="faq-a">华体会是一个平台吗？</span>
+        </div>
+        <div class="faq-item">
+            <span class="faq-q">答：</span>
+            <span class="faq-a">它更像一种内容与设计的取向，一种对阅读环境的理解。访问 <a href="https://indexofficial-hth.com.cn">华体会</a> 可以了解更多延伸内容。</span>
+        </div>
+        <div class="faq-item">
+            <span class="faq-q">问：</span>
+            <span class="faq-a">页面为何如此简洁？</span>
+        </div>
+        <div class="faq-item">
+            <span class="faq-q">答：</span>
+            <span class="faq-a">冗余的信息会稀释感受。留白与克制的排版是为了让内容自身获得更清晰的表达。</span>
+        </div>
+        <div class="faq-item">
+            <span class="faq-q">问：</span>
+            <span class="faq-a">可以转载或引用这里的文字吗？</span>
+        </div>
+        <div class="faq-item">
+            <span class="faq-q">答：</span>
+            <span class="faq-a">保持署名与非商业前提即可，细节可参考相关说明。我们鼓励有品质的分享。</span>
+        </div>
+    </div>
+
+    <!-- 页尾访问提示 -->
+    <footer class="footer-note">
+        <p>如果你对这个主题保持兴趣，或者想进一步了解这种叙事方式所延伸的内容，可以前往 <a href="https://indexofficial-hth.com.cn">华体会</a> 继续阅读。那里有更完整的文章、设计随笔与存档。</p>
+        <div class="sig">—— 杂志式索引 · 2025</div>
+    </footer>
+</div>
+</body>
+</html>
